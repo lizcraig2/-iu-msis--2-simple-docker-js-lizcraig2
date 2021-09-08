@@ -1,0 +1,52 @@
+main {
+
+    margin-right: 50px;
+    margin-left:50px;
+  }
+
+.title {
+
+    color:darkred;
+    font-weight: bold;
+}
+
+#coolfont {
+  font-family: verdana;
+  text-decoration: underline;
+  text-decoration-thickness: 5px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: darkred;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  
+}
+
+.boldnav {
+  font-weight: bold;
+}
+/* Citation: https://www.w3schools.com/howto/howto_css_thumbnail.asp*/
+img {
+  border: 1px solid darkred; 
+  border-radius: 4px;  
+  padding: 5px; 
+  width: 300px; 
+}
+/* Citation: https://www.w3schools.com/howto/howto_css_thumbnail.asp*/
+img:hover {
+  box-shadow: 0 0 2px 1px darkred (0, 140, 186, 0.5);
+}
+.linkcolor {
+  color: darkred
+}
+
+.background {
+  background-color: gainsboro;
+  border-radius: 5px;
+}
