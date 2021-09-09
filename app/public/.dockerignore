@@ -1,0 +1,6 @@
+#Unix glob pattern. The * omits any file that starts with "."
+.*
+#Eliminating the files that aren't neeed in our final image
+docker-compose.yml
+#Omits any markdown files (README.md)
+*.md
