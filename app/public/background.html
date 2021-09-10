@@ -43,7 +43,7 @@
     <h1 class="mx-auto title" style="width: 400px;">My Favorite Books</h1><br>
 
     <!-- Table from bootstrap documentation -->
-    <table class="table table-bordered table-striped table-hover table-striped table-hover">
+    <table id="taskTable" class="table table-bordered table-striped table-hover table-striped table-hover">
         <thead>
           <tr>
             <th>Book Title</th>
@@ -141,5 +141,11 @@
     <div class="footer">
         <p>Thank you for visiting my page</p>
       </div>
+      <script src="js/tablesort.min.js"></script>
+      
+        
+          <script>
+        new Tablesort(document.getElementById('taskTable'));
+</script>
 </body>
 </html>
