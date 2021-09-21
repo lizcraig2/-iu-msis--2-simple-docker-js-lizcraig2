@@ -42,20 +42,8 @@
   <br>
 </div>
 
-<!-- John Doe and his info -->
-  <!-- <div class="text-center">
-    <img src="img/whiteman.jpeg" class="rounded" alt="Man">
-  </div><br>
-  <div id="app" class="text-center">
-  <h2 id="coolfont">{{ product }}</h2></div>
-  <br>
-  <h4 class="background">Age: 46<h4>
-  <h4>Country: France<h4>
-  <h4 class="background">Birthdate: May 10, 1975</h4>
-  <h4><a class="linkcolor" href="mailto:johndoe@iu.edu">Email Me</a></h4> -->
-
+<!-- Vuejs code generating information from randomuser.me website -->
   <div class="col col-8" id="SomeApp">
-    <h3>This is me!</h3>
     <a v-bind:href="result.picture.large">
       <img v-bind:src="result.picture.thumbnail" alt="">
     </a>
@@ -66,15 +54,15 @@
     <p>Date of Birth: {{ bday }}</p>
     <p>Country: {{ result.location.country }}</p>
     <p>Age: {{ result.dob.age }}</p>
-    <!-- <p>{{  }}</p>
-    <p>{{ result.name }}</p>
-    <p><a v-bind:href="'mailto:' + result.email">{{ result.email }}</a></p>
-    <p>{{ result.dob.date }}</p>
-    <p>{{ </p>
-    <form onsubmit="">
-      <button type="submit">Refresh</button>
-    </form> -->
   </div>
+</div>
+
+ <!-- Button styling from Bootstrap documentation-->
+<div class="center" id="someApp" align="center">
+  <form v-on:submit.prevent="fetchUserData">
+    <button type="submit" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Refresh</button>
+  </form>
+</div>
 </main>
 <br><br><br>
 
