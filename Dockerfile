@@ -4,6 +4,9 @@ LABEL maintainer="Liz Craig"
 
 RUN docker-php-ext-install pdo_mysql
 
+#Set the working directory in the image
+WORKDIR /app/serv
+
 COPY app /srv/app
 
 # PHP configuration
