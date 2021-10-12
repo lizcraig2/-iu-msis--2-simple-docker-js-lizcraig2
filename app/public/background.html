@@ -45,22 +45,8 @@
 
 
     <div id="SomeApp" class="container">
-      <div class="row align-items-start">
-        <div class="col col-4">
-          <!-- <p>Profile information for {{ person.name.first }}</p> -->
-          <div v-for="b in book" v-on:click="selectBook(b)"
-           :class="['book', {selected: selectedBook && b.id == selectedBook.id}]">
-            <span>{{ b.title }}</span><br>
-            <span>{{ b.author }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div id="SomeApp" class="col col-8">
-      <h1>Offers for {{ selectedBook.title }}</h1>
-
+      
+   
       <table id="taskTable" class="table table-bordered table-striped table-hover table-striped table-hover">
         <thead>
           <tr>
@@ -73,84 +59,20 @@
           </tr>
         </thead>
           <tbody>
-            <div  v-for="b in book" v-on:click="selectBook(b)"
-            :class="['book', {selected: selectedBook && b.id == selectedBook.id}]">
-              <tr>
+            <div>
+              <tr v-for="b in book">
                   <td>{{ b.title }}</td>
-                  <td>{{ book.author }}</td>
-                  <td>{{ books.years }}</td>
+                  <td>{{ b.author }}</td>
+                  <td>{{ b.years }}</td>
                   <td>{{ b.publisher }}</td>
-                  <td>{{ book.pages }}</td>
-                  <td>{{ book.msrp }}</td>
+                  <td>{{ b.pages }}</td>
+                  <td>{{ b.msrp }}</td>
               </tr>
              </div>
           </tbody>
       </table>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Table from bootstrap documentation -->
-    <table id="taskTable" class="table table-bordered table-striped table-hover table-striped table-hover">
-        <thead>
-          <tr>
-            <th>Book Title</th>
-              <th>Author</th>
-            <th>Year Published</th>
-            <th>Publisher</th>
-            <th>Page Count</th>
-            <th>MSRP</th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr><td>The Green Mile</td>
-          <td> Stephen King</td>
-           <td>	1996</td>
-           <td>New American Library</td>
-           <td>432</td>
-           <td>$10.81</td>
-        </tr>
-          <tr><td>Throne of Glass</td>
-          <td>Sarah J. Maas</td>
-          <td>2012</td>
-          <td>Bloomsbury Publishing</td>
-          <td>416</td>
-          <td>$13.00</td>
-        </tr>
-          <tr><td>The Four Winds</td>
-          <td>Kristin Hannah</td>
-          <td>2021</td>
-          <td>St. Martin's Publishing Group</td>
-          <td>464</td>
-          <td>$22.99</td>
-        </tr>
-          <tr><td>The Intelligent Investor</td>
-          <td>Benjamin Graham</td>
-          <td>2006</td>
-          <td>HarperCollins Publishers</td>
-          <td>640</td>
-          <td>$19.99</td>
-        </tr>
-          <tr><td>Principles: Life and Work</td>
-          <td>Ray Dalio</td>
-          <td>2017</td>
-          <td>Simon and Schuster</td>
-          <td>592</td>
-          <td>$25.49</td>
-        </tr>
-        </tbody>
-      </table>
-      <br>
 
       <!-- Title -->
       <h2 style="text-align:center">Add New Books Below:</h2><br>
