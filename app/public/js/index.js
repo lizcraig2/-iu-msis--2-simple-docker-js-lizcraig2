@@ -7,6 +7,8 @@ const someApp = {
       listbook: [],
       list: [5, 6, 7, 8],
       message: "Waiting ...",
+      bookForm: {},
+      books: []
     };
   },
   // Source: https://day.js.org/
@@ -69,15 +71,34 @@ const someApp = {
         });
     }*/
   },
+
+  postNewBook(evt) {
+    this.bookForm.id = this.selectedBook.id;  /* Problem might be here with selectedBook id */      
+    console.log("Posting:", this.bookForm);
+    // alert("Posting!");
+
+    fetch('api/student/create.php', {
+        method:'POST',
+        body: JSON.stringify(this.bookForm),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .then( json => {
+        console.log("Returned from post:", json);
+        // TODO: test a result was returned!
+        this.book = json;
+        
+        // reset the form
+        this.bookForm = {};
+      });
+  },
+  
     created() {
       this.fetchBookData();
     },
-    postNewBook(evt) {
-      this.bookForm.id = this.selectedBook.id;
-      console.log("Posting", this.bookForm);
-      alert("Posting")
-
-    },
+    
 }
 
 
