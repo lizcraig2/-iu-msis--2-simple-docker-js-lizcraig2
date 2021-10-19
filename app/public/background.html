@@ -8,9 +8,6 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-   
-  
-
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -36,8 +33,9 @@
       </nav>
 
       <!-- Container for entire page -->
+ <main>
     <div class="container col-lg-9 col-md-9 col-sm-12 col-xs-12">
-<main>
+
     <br>
     <!-- Title -->
     <h1 class="mx-auto title" style="width: 400px;">My Favorite Books</h1><br>
@@ -67,12 +65,14 @@
                   <td>{{ b.publisher }}</td>
                   <td>{{ b.pages }}</td>
                   <td>{{ b.msrp }}</td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Delete</button></td>
               </tr>
              </div>
           </tbody>
       </table>
 
-    </div>
+    
 
       <!-- Title -->
       <h2 style="text-align:center">Add New Books Below:</h2><br>
@@ -86,6 +86,7 @@
           <div class="col">
             <input type="text" v-model="bookForm.author" class="form-control" placeholder="Author" id="author">
           </div>
+    
         </div>
           <br>
 
@@ -107,14 +108,14 @@
             <input type="number" v-model="bookForm.msrp" class="form-control" placeholder="MSRP" id="msrp">
           </div>
         </div>
-      </div>
+
         <br>
         <div class="d-grid gap-2 d-md-block" align="center">
-          <button class="btn btn-primary" type="submit">Submit</button>
+          <button class="btn btn-primary" type="submit">Add Book</button>
         </div>
 
     </form>
-
+  </div>
 </main>
     <br>
     <br>
@@ -136,10 +137,9 @@
  <!-- Vue.js -->
  <script src="https://unpkg.com/vue@next"></script>
 
-<script src="js/index.js"></script>
-
 <!-- Day JS -->
 <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script src="js/index.js"></script>
   
 </body>
 </html>

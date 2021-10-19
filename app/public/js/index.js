@@ -17,20 +17,6 @@ const someApp = {
       return dayjs(this.result.dob.date).format('DD/MM/YYYY')
     }
   },
-
-
-  created() {
-    //Method 1:
-    fetch("https://randomuser.me/api/")
-      .then((response) => response.json())
-      .then((parsedJson) => {
-        this.result = parsedJson.results[0];
-        console.log(this.result);
-      })
-      .catch((err) => 
-        console.error(err)
-      );
-  },
   
   /*squigly with comma goes here*/
   methods: {
@@ -70,29 +56,34 @@ const someApp = {
             console.error(error);
         });
     }*/
-  },
+    selectBook(b) {
+      this.selectedBooks = b;
+      this.bookForm = this.selectedBooks;
+    },
 
-  postNewBook(evt) {
-    this.bookForm.id = this.selectedBook.id;  /* Problem might be here with selectedBook id */      
-    console.log("Posting:", this.bookForm);
-    // alert("Posting!");
 
-    fetch('api/student/create.php', {
-        method:'POST',
-        body: JSON.stringify(this.bookForm),
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-      .then( response => response.json() )
-      .then( json => {
-        console.log("Returned from post:", json);
-        // TODO: test a result was returned!
-        this.book = json;
-        
-        // reset the form
-        this.bookForm = {};
-      });
+    postNewBook(evt) {
+      console.log("Posting:", this.bookForm);
+      // alert("Posting!");
+
+      fetch('api/student/create.php', {
+          method:'POST',
+          body: JSON.stringify(this.bookForm),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .then( json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.book = json;
+          
+          // reset the form
+          this.bookForm = {};
+        });
+    },
+
   },
   
     created() {
