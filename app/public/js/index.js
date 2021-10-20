@@ -83,6 +83,37 @@ const someApp = {
           this.bookForm = {};
         });
     },
+    postEditOffer(evt) {
+      this.bookForm.id = this.selectedBook.id; /*first book form may be wrongused to have StudentId*/
+      this.bookForm.id = this.selectedBook.id;
+
+      console.log("Updating!", this.offerForm);
+
+      fetch('api/student/update.php', {
+          method:'POST',
+          body: JSON.stringify(this.bookForm),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .then( json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.books = json;
+
+          // reset the form
+          this.resetBookForm();
+        });
+    },
+    selectOfferToEdit(o) {
+        this.selectedBook = o;
+        this.bookForm = Object.assign({}, this.selectedBook);
+    },
+    resetOfferForm() {
+        this.selectedBook = null;
+        this.bookForm = {};
+    }
 
   },
   

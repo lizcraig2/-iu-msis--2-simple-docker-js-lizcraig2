@@ -1,6 +1,9 @@
 <?php
 
-
+// if (($_SERVER['REQUEST_METHOD'] ?? '') != 'POST') {
+//     header($_SERVER["SERVER_PROTOCOL"] . " 405 Method Not Allowed");
+//     exit;
+// }
 
 try {
     $_POST = json_decode(
@@ -28,8 +31,13 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO book (title, author, years, publisher, pages, msrp)
-  VALUES (?, ?, ?, ?, ?, ?)'
+  'UPDATE book SET
+    title = ?,
+    author = ?,
+    years = ?,
+    publisher = ?
+    pages = ?
+  WHERE id = ?'
 );
 
 $stmt->execute([
@@ -38,7 +46,8 @@ $stmt->execute([
   $_POST['years'],
   $_POST['publisher'],
   $_POST['pages'],
-  $_POST['msrp']
+  $_POST['msrp'],
+  $_POST['id']
 ]);
 
 // Get auto-generated PK from DB
@@ -49,4 +58,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../student/'); 
+header('Location: ../student/');
