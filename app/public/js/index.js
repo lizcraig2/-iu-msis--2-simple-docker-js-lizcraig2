@@ -106,7 +106,7 @@ const someApp = {
           this.resetBookForm();
         });
     },
-    selectOfferToEdit(o) {
+    selectBookToEdit(o) {
         this.selectedBook = o;
         this.bookForm = Object.assign({}, this.selectedBook);
     },
