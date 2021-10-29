@@ -20,15 +20,22 @@ const someApp = {
   
   /*squigly with comma goes here*/
   methods: {
-    selectBook(b) {
-      if (b == this.selectedBook) {
-          return;
+    // selectBook(b) {
+    //   if (b == this.selectedBook) {
+    //       return;
+    //   }
+    //   this.selectedBook = b;
+    //   this.listbook = [];
+    //   this.fetchBookData(this.selectedBook);
+    // },
+    postBook(evt) {
+      if (this.selectedBooks === null) {
+          this.postNewBook(evt);
+      } else {
+          this.postEditBook(evt);
       }
-      this.selectedBook = b;
-      this.listbook = [];
-      this.fetchBookData(this.selectedBook);
     },
-
+    
     fetchBookData() {
       fetch('/api/student/')
         .then( response => response.json() )
@@ -83,11 +90,11 @@ const someApp = {
           this.bookForm = {};
         });
     },
-    postEditOffer(evt) {
-      this.bookForm.id = this.selectedBook.id; /*first book form may be wrongused to have StudentId*/
-      this.bookForm.id = this.selectedBook.id;
+    postEditBook(evt) {
+      this.bookForm.id = this.selectedBooks.id; /*first book form may be wrongused to have StudentId*/
+      //this.bookForm.id = this.selectedBook.id;
 
-      console.log("Updating!", this.offerForm);
+      console.log("Updating!", this.bookForm);
 
       fetch('api/student/update.php', {
           method:'POST',
@@ -100,20 +107,21 @@ const someApp = {
         .then( json => {
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
-          this.books = json;
+          this.book = json;
 
           // reset the form
           this.resetBookForm();
         });
     },
     selectBookToEdit(o) {
-        this.selectedBook = o;
-        this.bookForm = Object.assign({}, this.selectedBook);
+        this.selectedBooks = o;
+        this.bookForm = Object.assign({}, this.selectedBooks);
     },
-    resetOfferForm() {
-        this.selectedBook = null;
+    resetBookForm() {
+        this.selectedBooks = null;
         this.bookForm = {};
-    }
+    },
+    
 
   },
   

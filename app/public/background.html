@@ -67,7 +67,7 @@
                   <td>{{ b.publisher }}</td>
                   <td>{{ b.pages }}</td>
                   <td>{{ b.msrp }}</td>
-                  <td><button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="selectBookToEdit(offer)">Edit</button></td>
+                  <td><button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="selectBookToEdit(b)">Edit</button></td>
                   <td><button type="button" class="btn btn-outline-secondary btn-sm">Delete</button></td>
               </tr>
              </div>
@@ -80,7 +80,7 @@
       <h2 style="text-align:center">{{ selectedBook === null ? "Add " : "Edit " }}Book Below:</h2><br>
       
       <!-- Form from bootstrap documentation -->
-    <form v-on:submit.prevent="postNewBook">
+    <form v-on:submit.prevent="postBook">
       <div class="row">
           <div class="col">
             <input type="text" v-model="bookForm.title" class="form-control" placeholder="Book Title" id="title">
@@ -113,8 +113,12 @@
 
         <br>
         <div class="d-grid gap-2 d-md-block" align="center">
-          <button class="btn btn-primary" type="submit">Add Book</button>
+          <button class="btn btn-primary" type="submit">{{ selectedBook === null ? "Add" : "Edit" }} Book</button>
         </div>
+          <button type="button" class="btn btn-outline-secondary" 
+          v-if="selectedBook"
+          v-on:click="resetBookForm">Cancel</button>
+        
 
     </form>
   </div>
