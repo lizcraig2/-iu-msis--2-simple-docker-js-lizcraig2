@@ -35,8 +35,9 @@ $stmt = $db->prepare(
     title = ?,
     author = ?,
     years = ?,
-    publisher = ?
-    pages = ?
+    publisher = ?,
+    pages = ?,
+    msrp = ?,
   WHERE id = ?'
 );
 
