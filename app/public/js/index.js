@@ -64,8 +64,8 @@ const someApp = {
         });
     }*/
     selectBook(b) {
-      this.selectedBooks = b;
-      this.bookForm = this.selectedBooks;
+      this.selectedBook = b;
+      this.bookForm = this.selectedBook;
     },
 
 
@@ -118,7 +118,7 @@ const someApp = {
         this.bookForm = Object.assign({}, this.selectedBook);
     },
     resetBookForm() {
-        this.selectedBooks = null;
+        this.selectedBook = null;
         this.bookForm = {};
     },
     
