@@ -29,7 +29,7 @@ const someApp = {
     //   this.fetchBookData(this.selectedBook);
     // },
     postBook(evt) {
-      if (this.selectedBooks === null) {
+      if (this.selectedBook === null) {
           this.postNewBook(evt);
       } else {
           this.postEditBook(evt);
@@ -91,7 +91,7 @@ const someApp = {
         });
     },
     postEditBook(evt) {
-      this.bookForm.id = this.selectedBooks.id; /*first book form may be wrongused to have StudentId*/
+      this.bookForm.id = this.selectedBook.id; /*first book form may be wrongused to have StudentId*/
       //this.bookForm.id = this.selectedBook.id;
 
       console.log("Updating!", this.bookForm);
@@ -114,8 +114,8 @@ const someApp = {
         });
     },
     selectBookToEdit(o) {
-        this.selectedBooks = o;
-        this.bookForm = Object.assign({}, this.selectedBooks);
+        this.selectedBook = o;
+        this.bookForm = Object.assign({}, this.selectedBook);
     },
     resetBookForm() {
         this.selectedBooks = null;
