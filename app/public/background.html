@@ -68,7 +68,7 @@
                   <td>{{ b.pages }}</td>
                   <td>{{ b.msrp }}</td>
                   <td><button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="selectBookToEdit(b)">Edit</button></td>
-                  <td><button type="button" class="btn btn-outline-secondary btn-sm">Delete</button></td>
+                  <td><button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="postDeleteBook(b)">Delete</button></td>
               </tr>
              </div>
           </tbody>

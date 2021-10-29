@@ -9,7 +9,7 @@ const someApp = {
       message: "Waiting ...",
       bookForm: {},
       books: []
-    };
+    } //;
   },
   // Source: https://day.js.org/
   computed: {
@@ -121,15 +121,32 @@ const someApp = {
         this.selectedBook = null;
         this.bookForm = {};
     },
-    
-
-  },
-  
+  postDeleteBook(o) {
+    if (!confirm("Are you sure you want to delete the book from "+o.title+"?")) {
+        return;
+    }
+    fetch('api/student/delete.php', {
+        method:'POST',
+        body: JSON.stringify(o),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .then( json => {
+        console.log("Returned from post:", json);
+        // TODO: test a result was returned!
+        this.book = json;
+        
+        this.resetBookForm();
+      });
+  }
+},
     created() {
       this.fetchBookData();
-    },
-    
-}
+    }
+  }
+
 
 
 
